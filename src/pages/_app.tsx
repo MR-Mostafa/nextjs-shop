@@ -3,7 +3,9 @@ import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { Roboto } from 'next/font/google';
 import { RecoilRoot } from 'recoil';
+import { SWRConfig } from 'swr';
 
+import { _OneSecond } from '@/constants';
 import MainLayout from '@/layouts/MainLayout';
 
 const roboto = Roboto({
@@ -24,9 +26,16 @@ export default function App({ Component, pageProps }: AppProps) {
 			`}</style>
 
 			<RecoilRoot>
-				<MainLayout>
-					<Component {...pageProps} />
-				</MainLayout>
+				<SWRConfig
+					value={{
+						loadingTimeout: _OneSecond * 15, // 15 seconds
+						errorRetryCount: 3,
+					}}
+				>
+					<MainLayout>
+						<Component {...pageProps} />
+					</MainLayout>
+				</SWRConfig>
 			</RecoilRoot>
 		</>
 	);
