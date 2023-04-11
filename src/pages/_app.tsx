@@ -1,7 +1,7 @@
 import '@/styles/globals.scss';
 
 import type { AppProps } from 'next/app';
-import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
@@ -9,12 +9,12 @@ import { SWRConfig } from 'swr';
 import { _OneSecond } from '@/constants';
 import MainLayout from '@/layouts/MainLayout';
 
-const roboto = Roboto({
+const interFont = Inter({
 	weight: ['400', '500', '700'],
 	subsets: ['latin'],
 	style: ['normal'],
 	display: 'swap',
-	variable: '--font-roboto',
+	variable: '--font-inter',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 			<style jsx global>{`
 				:root {
-					--font-roboto: ${roboto.variable};
+					--font-roboto: ${interFont.variable};
 				}
 			`}</style>
 
