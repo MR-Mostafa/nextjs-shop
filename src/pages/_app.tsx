@@ -2,6 +2,7 @@ import '@/styles/globals.scss';
 
 import type { AppProps } from 'next/app';
 import { Roboto } from 'next/font/google';
+import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
 
@@ -19,6 +20,13 @@ const roboto = Roboto({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<Head>
+				<meta charSet="UTF-8" />
+				<title>E-commerce</title>
+				<link rel="icon" type="image/png" href="/favicon.png" />
+				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+			</Head>
+
 			<style jsx global>{`
 				:root {
 					--font-roboto: ${roboto.variable};
