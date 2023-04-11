@@ -1,9 +1,5 @@
-import React from 'react'
-
 function Avatar() {
-    return (
-        <div>Avatar</div>
-    )
+	return <div>Avatar</div>;
 }
 
-export default Avatar
+export default Avatar;

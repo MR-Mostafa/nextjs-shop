@@ -1,7 +1,9 @@
-import '@/styles/globals.css';
+import '@/styles/globals.scss';
+
 import type { AppProps } from 'next/app';
-import MainLayout from '@/layouts/MainLayout';
 import { Roboto } from 'next/font/google';
+
+import MainLayout from '@/layouts/MainLayout';
 
 const roboto = Roboto({
 	weight: ['400', '500', '700'],
