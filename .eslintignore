@@ -1,0 +1,10 @@
+node_modules
+node_modules/*
+.DS_Store
+dist
+build
+dist-ssr
+*.local
+*.md
+next.config.js
+tailwind.config.js
