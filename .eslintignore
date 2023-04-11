@@ -6,3 +6,4 @@ build
 dist-ssr
 *.local
 *.md
+next.config.js
