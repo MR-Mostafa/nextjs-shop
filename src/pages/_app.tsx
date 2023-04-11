@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 			<style jsx global>{`
 				:root {
-					--font-roboto: ${interFont.variable};
+					--font-inter: ${interFont.variable};
 				}
 			`}</style>
 
