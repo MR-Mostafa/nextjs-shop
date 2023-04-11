@@ -2,6 +2,7 @@ import '@/styles/globals.scss';
 
 import type { AppProps } from 'next/app';
 import { Roboto } from 'next/font/google';
+import { RecoilRoot } from 'recoil';
 
 import MainLayout from '@/layouts/MainLayout';
 
@@ -22,9 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
 				}
 			`}</style>
 
-			<MainLayout>
-				<Component {...pageProps} />
-			</MainLayout>
+			<RecoilRoot>
+				<MainLayout>
+					<Component {...pageProps} />
+				</MainLayout>
+			</RecoilRoot>
 		</>
 	);
 }
