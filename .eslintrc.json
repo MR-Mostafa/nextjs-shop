@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+	"plugins": ["github"],
+	"extends": ["eslint:recommended", "plugin:github/recommended", "next/core-web-vitals", "prettier"],
+	"rules": {
+		"react-hooks/exhaustive-deps": "off",
+		"filenames/match-regex": "off"
+	}
 }
