@@ -18,5 +18,7 @@
 	"importOrder": [".css$", ".scss$", "<THIRD_PARTY_MODULES>", "^@(.*)$", "^~(.*)$", "^[./]"],
 	"importOrderGroupNamespaceSpecifiers": true,
 	"importOrderSeparation": true,
-	"importOrderSortSpecifiers": true
+	"importOrderSortSpecifiers": true,
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"pluginSearchDirs": false
 }

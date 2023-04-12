@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 function Header() {
 	return (
-		<header className="w-full bg-white border-b p-6">
+		<header className="w-full border-b bg-white p-6">
 			<div className="container mx-auto">
-				<nav className="w-full flex justify-between items-center">
+				<nav className="flex w-full items-center justify-between">
 					<Link href={'/products'} className="text-2xl font-bold">
 						Products
 					</Link>
