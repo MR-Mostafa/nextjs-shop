@@ -16,9 +16,8 @@ interface ITextField extends Omit<InputProps, 'className'> {
 export const TextField = forwardRef<HTMLInputElement, ITextField>((props, ref) => {
 	const { label, hasError, leftIcon, rightIcon, rootClassName, inputClassName, labelClassName, ...rest } = props;
 
-	const rootClass = cx('TextField-wrapper', {
+	const rootClass = cx('TextField-wrapper', rootClassName, {
 		'TextField-error': hasError,
-		rootClassName,
 	});
 
 	const inputClass = cx('TextField-input', inputClassName, {
