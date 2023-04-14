@@ -1,6 +1,5 @@
 import cx from 'classnames';
-import { BaseTwProps } from '@/types';
-import { ReactNode, forwardRef, ElementType } from 'react';
+import { forwardRef } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
 interface IStar {
