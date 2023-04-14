@@ -1,4 +1,4 @@
-import '@/styles/globals.scss';
+import '@/styles/styles.scss';
 
 import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<style jsx global>{`
 				:root {
 					--font-inter: ${interFont.variable};
+					font-size: 16px;
 				}
 			`}</style>
 

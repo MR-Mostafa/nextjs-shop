@@ -1,0 +1,11 @@
+/**
+ * Global Avatar Style
+*/
+
+.avatar-wrapper {
+	@apply inline-block overflow-hidden rounded-full;
+}
+
+.avatar-image {
+	@apply block h-full w-full object-cover;
+}
