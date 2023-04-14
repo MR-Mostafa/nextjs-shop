@@ -1,0 +1,15 @@
+/**
+ * Global Star Style
+*/
+
+.Star-wrapper {
+	@apply relative inline-flex items-center justify-center text-base text-[#131822] outline-none;
+} // .Star-wrapper
+
+.Star-icon {
+	@apply h-full w-full fill-[#F1DC36] text-[1.1em];
+} // .Star-icon
+
+.Star-rate {
+	@apply pl-1 text-sm text-inherit;
+} // .Star-rate
