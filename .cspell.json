@@ -5,5 +5,5 @@
 	"dictionaries": ["typescript", "node", "html", "css"],
 	"allowCompoundWords": true,
 	"words": [],
-	"ignoreWords": []
+	"ignoreWords": ["mysecretpassword"]
 }

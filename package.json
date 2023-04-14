@@ -15,7 +15,7 @@
 		"pre-commit": "yarn run prettier:check && yarn run eslint:check && yarn run spell && next lint",
 		"lint": "yarn run pre-commit",
 		"prepare": "husky install",
-		"test:run": "cypress open --component",
+		"test": "cypress open --component",
 		"test:headless": "cypress run --component"
 	},
 	"dependencies": {
