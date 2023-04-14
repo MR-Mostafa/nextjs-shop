@@ -3,7 +3,7 @@
 */
 
 .btn {
-	@apply relative inline-flex items-center justify-center p-3 text-center text-base text-inherit transition;
+	@apply relative inline-flex items-center justify-between p-3 text-center text-base text-inherit outline-none transition;
 } // .btn
 
 .btn-primary {
@@ -13,6 +13,14 @@
 		@apply cursor-pointer hover:bg-[#131822]/[0.96] hover:shadow-[0_0_5px_2px_#9ca3af] focus:shadow-[0_0_5px_2px_#9ca3af] active:bg-gray-950 active:shadow-none active:blur-[0.4px];
 	}
 } // .btn-primary
+
+.btn-link {
+	@apply bg-white text-[#131822];
+
+	&:not([disabled], .btn-loading) {
+		@apply cursor-pointer hover:text-gray-950 focus:text-gray-950 active:text-[#131822]/[0.7];
+	}
+} // .btn-link
 
 .btn-disable {
 	@apply text-opacity-80 opacity-40;
@@ -37,4 +45,18 @@
 	&::after {
 		@apply pointer-events-auto absolute bottom-0 left-0 right-0 top-0 z-10 block h-full w-full cursor-not-allowed content-[""];
 	}
+}
+
+.Button-icon {
+	svg {
+		@apply block fill-current text-[1.2em];
+	}
+}
+
+.Button-icon--left {
+	@apply h-full w-auto pr-3;
+}
+
+.Button-icon--right {
+	@apply h-full w-auto pl-3;
 }

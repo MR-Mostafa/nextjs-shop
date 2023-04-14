@@ -8,9 +8,11 @@ import { ImSpinner8 } from 'react-icons/im';
 interface IButton extends BaseTwProps, ButtonProps {
 	as?: 'a' | 'button';
 	children: ReactNode;
-	variant?: 'primary';
+	variant?: 'primary' | 'link';
 	isLoading?: boolean;
 	href?: string;
+	leftIcon?: ReactNode;
+	rightIcon?: ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, IButton>((props, ref) => {
@@ -19,6 +21,8 @@ export const Button = forwardRef<HTMLButtonElement, IButton>((props, ref) => {
 		children,
 		variant,
 		isLoading,
+		leftIcon,
+		rightIcon,
 		className,
 		fontWeight,
 		fontSize,
@@ -38,6 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, IButton>((props, ref) => {
 
 	const defaultClass = cx('btn', {
 		'btn-primary': variant === 'primary',
+		'btn-link': variant === 'link',
 		'btn-disable': rest.disabled,
 		'btn-loading': isLoading,
 	});
@@ -62,7 +67,11 @@ export const Button = forwardRef<HTMLButtonElement, IButton>((props, ref) => {
 		<Component ref={ref} className={classNames} {...rest}>
 			{isLoading && <ImSpinner8 strokeWidth="1px" fill="#fff" className="spinner" />}
 
+			{leftIcon && <span className="Button-icon Button-icon--left">{leftIcon}</span>}
+
 			{children}
+
+			{rightIcon && <span className="Button-icon Button-icon--right">{rightIcon}</span>}
 		</Component>
 	);
 });
