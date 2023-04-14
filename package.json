@@ -14,7 +14,9 @@
 		"spell": "cspell --no-progress \"src/**/*\"",
 		"pre-commit": "yarn run prettier:check && yarn run eslint:check && yarn run spell && next lint",
 		"lint": "yarn run pre-commit",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"test": "cypress open --component",
+		"test:headless": "cypress run --component"
 	},
 	"dependencies": {
 		"@types/node": "18.15.11",
@@ -41,6 +43,7 @@
 		"classnames": "^2.3.2",
 		"cspell": "^6.31.1",
 		"cssnano": "^6.0.0",
+		"cypress": "^12.9.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-github": "^4.7.0",
 		"eslint-plugin-prettier": "^4.2.1",
@@ -50,6 +53,7 @@
 		"react-html-props": "^2.0.2",
 		"rimraf": "^5.0.0",
 		"sass": "^1.61.0",
+		"start-server-and-test": "^2.0.0",
 		"tailwind-merge": "^1.12.0",
 		"tailwindcss-classnames": "^3.0.7"
 	}
