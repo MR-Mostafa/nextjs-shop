@@ -4,6 +4,7 @@
 	"rules": {
 		"no-unused-vars": "off",
 		"react-hooks/exhaustive-deps": "off",
-		"filenames/match-regex": "off"
+		"filenames/match-regex": "off",
+		"eslint-comments/no-use": ["off"]
 	}
 }
