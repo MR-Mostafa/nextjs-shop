@@ -7,7 +7,8 @@ import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
 
 import { _OneSecond } from '@/constants';
-import MainLayout from '@/layouts/MainLayout';
+import { SessionProvider } from 'next-auth/react';
+import type { Session } from 'next-auth';
 
 const interFont = Inter({
 	weight: ['400', '500', '700'],
@@ -17,7 +18,7 @@ const interFont = Inter({
 	variable: '--font-inter',
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps<{ session: Session }>) {
 	return (
 		<>
 			<Head>
@@ -34,18 +35,18 @@ export default function App({ Component, pageProps }: AppProps) {
 				}
 			`}</style>
 
-			<RecoilRoot>
-				<SWRConfig
-					value={{
-						loadingTimeout: _OneSecond * 15, // 15 seconds
-						errorRetryCount: 3,
-					}}
-				>
-					<MainLayout>
+			<SessionProvider session={session}>
+				<RecoilRoot>
+					<SWRConfig
+						value={{
+							loadingTimeout: _OneSecond * 15, // 15 seconds
+							errorRetryCount: 3,
+						}}
+					>
 						<Component {...pageProps} />
-					</MainLayout>
-				</SWRConfig>
-			</RecoilRoot>
+					</SWRConfig>
+				</RecoilRoot>
+			</SessionProvider>
 		</>
 	);
 }

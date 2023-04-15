@@ -1,10 +1,20 @@
-import { Star } from '@/components';
-import { BiHide } from 'react-icons/bi';
+import { Star, Button } from '@/components';
+import MainLayout from '@/layouts/MainLayout';
 
 export default function Home() {
 	return (
-		<div className="w-full">
-			<Star rate={5.6} />
-		</div>
+		<MainLayout
+			shouldShowHeader
+			link="/"
+			title={
+				<Button as="a" variant="link" className="text-2xl font-bold">
+					Products
+				</Button>
+			}
+		>
+			<div className="w-full">
+				<Star rate={5.6} />
+			</div>
+		</MainLayout>
 	);
 }

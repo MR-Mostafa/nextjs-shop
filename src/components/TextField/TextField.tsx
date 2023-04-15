@@ -38,7 +38,7 @@ export const TextField = forwardRef<HTMLInputElement, ITextField>((props, ref) =
 			<div className="relative">
 				{leftIcon && <div className="TextField-icon TextField-icon--left">{leftIcon}</div>}
 
-				<input ref={ref} className={inputClass} date-invalid={hasError && `${hasError}`} {...rest} />
+				<input ref={ref} className={inputClass} date-invalid={hasError ? `${hasError}` : undefined} {...rest} />
 
 				{rightIcon && <div className="TextField-icon TextField-icon--right">{rightIcon}</div>}
 			</div>
