@@ -1,15 +1,16 @@
 import { ReactNode } from 'react';
 
-import Header from '@/features/Header';
+import { Header } from '@/features';
 
 type TPropsMainLayout = {
+	shouldShowHeader?: boolean;
 	children: ReactNode;
 };
 
-function MainLayout({ children }: TPropsMainLayout) {
+function MainLayout({ children, shouldShowHeader = true }: TPropsMainLayout) {
 	return (
 		<>
-			<Header />
+			{shouldShowHeader && <Header />}
 			<main className="w-full p-6">{children}</main>
 		</>
 	);
