@@ -31,7 +31,7 @@
 
 	&[date-invalid],
 	&:not(:placeholder-shown, :focus):invalid {
-		@apply border-red-700 shadow-red-400;
+		@apply border-red-700 shadow-red-400 text-red-700 placeholder:text-red-400;
 	}
 } // .TextField-input
 
