@@ -5,6 +5,7 @@
 		"no-unused-vars": "off",
 		"react-hooks/exhaustive-deps": "off",
 		"filenames/match-regex": "off",
-		"eslint-comments/no-use": ["off"]
+		"eslint-comments/no-use": ["off"],
+		"i18n-text/no-en": "off"
 	}
 }
