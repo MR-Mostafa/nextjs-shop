@@ -1,6 +1,8 @@
+/* eslint-disable import/named */
 /* eslint-disable github/no-then */
+
 import { _OneSecond } from '@/constants';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 const API = axios.create({
 	baseURL: 'https://dummyjson.com/',
@@ -36,6 +38,7 @@ API.interceptors.response.use(
 	}
 );
 
-export const getFetcher = <T>(url: string) => API.get<T>(url).then((res) => res);
+export const getFetcher = <T>(url: string, config: AxiosRequestConfig<any> = {}) => API.get<T>(url, config).then((res) => res);
 
-export const postFetcher = <T>(url: string, data: object = {}) => API.post<T>(url, data).then((res) => res);
+export const postFetcher = <T>(url: string, data: any = {}, config: AxiosRequestConfig<any> = {}) =>
+	API.post<T>(url, data, config).then((res) => res);
