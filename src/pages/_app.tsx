@@ -7,7 +7,6 @@ import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
 
 import { _OneSecond } from '@/constants';
-import MainLayout from '@/layouts/MainLayout';
 
 const interFont = Inter({
 	weight: ['400', '500', '700'],
@@ -41,9 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
 						errorRetryCount: 3,
 					}}
 				>
-					<MainLayout>
-						<Component {...pageProps} />
-					</MainLayout>
+					<Component {...pageProps} />
 				</SWRConfig>
 			</RecoilRoot>
 		</>
