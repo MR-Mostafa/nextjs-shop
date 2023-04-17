@@ -9,24 +9,22 @@ import { ReactNode, memo } from 'react';
 interface ProductItemProps {
 	children?: ReactNode;
 	product: ProductItemType;
-	shouldPreventClick?: boolean;
+	link?: string;
 }
 
-export const ProductItem = memo(({ children, product, shouldPreventClick = false }: ProductItemProps) => {
+export const ProductItem = memo(({ children, product, link }: ProductItemProps) => {
 	const router = useRouter();
-
-	const link = `/products/${product.id}`;
 
 	return (
 		<Card.Wrapper
 			onClick={() => {
-				if (shouldPreventClick) return;
+				if (!link) return;
 
 				router.push(link);
 			}}
 		>
 			<Card.Image className="max-h-[335px]">
-				{shouldPreventClick ? (
+				{!link ? (
 					<Image
 						src={product.thumbnail}
 						alt={product.title}
@@ -51,7 +49,7 @@ export const ProductItem = memo(({ children, product, shouldPreventClick = false
 
 			<Card.Body className="px-1 py-2 text-left">
 				<div className="flex items-center justify-between">
-					{shouldPreventClick ? (
+					{!link ? (
 						<p className="title">{product.title}</p>
 					) : (
 						<Link href={link} className="title">

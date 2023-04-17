@@ -69,7 +69,8 @@ const Product = ({ data }: ProductProps) => {
 
 				{data.products.length === 0 && <p className="pt-3 text-center font-bold">There are no products available</p>}
 
-				{data.products.length !== 0 && data.products.map((item) => <ProductItem key={item.id} product={item} />)}
+				{data.products.length !== 0 &&
+					data.products.map((item) => <ProductItem key={item.id} product={item} link={`/products/${item.id}`} />)}
 
 				<div className="flex items-center justify-between px-1 pt-4">
 					<Button disabled={hasPreviousPage()} className="mr-2	block w-2/4" variant="primary" onClick={() => handleChangePage(-1)}>

@@ -44,7 +44,7 @@ const ProductId = ({ data }: ProductIdProps) => {
 				</Button>
 			}
 		>
-			<ProductItem product={data} shouldPreventClick>
+			<ProductItem product={data}>
 				<div className="flex items-center justify-between pt-2">
 					<Counter value={count} setValue={(val) => setCount((prev) => prev + val)} maxValue={data.stock} />
 
