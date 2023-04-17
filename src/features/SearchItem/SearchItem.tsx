@@ -1,7 +1,6 @@
-import { Card } from '@/components';
+import { Card, ImageWithFallback } from '@/components';
 import Link from 'next/link';
 import { ProductItem as ProductItemType } from '@/types';
-import Image from 'next/image';
 import { shimmer, toBase64 } from '@/utils';
 import { useRouter } from 'next/router';
 import { ReactNode, memo } from 'react';
@@ -26,7 +25,7 @@ export const SearchItem = memo(({ children, product, link }: ProductItemProps) =
 		>
 			<Card.Image className="max-h-[110px] flex-[110px] flex-shrink-0 flex-grow-0">
 				{!link ? (
-					<Image
+					<ImageWithFallback
 						src={product.thumbnail}
 						alt={product.title}
 						width={110}
@@ -36,7 +35,7 @@ export const SearchItem = memo(({ children, product, link }: ProductItemProps) =
 					/>
 				) : (
 					<Link href={link}>
-						<Image
+						<ImageWithFallback
 							src={product.thumbnail}
 							alt={product.title}
 							width={110}
