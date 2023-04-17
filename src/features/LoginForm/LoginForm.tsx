@@ -89,7 +89,7 @@ export const LoginForm = () => {
 				tabIndex={2}
 				required
 			/>
-			<Button variant="link" className="self-end" tabIndex={3}>
+			<Button variant="link" className="self-end bg-transparent" tabIndex={3}>
 				Forgot password?
 			</Button>
 

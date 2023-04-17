@@ -27,7 +27,16 @@ export const Header = ({ link, title }: HeaderProps) => {
 
 					<ul className="flex flex-row-reverse items-center [&>li:not(:first-child)]:pe-2">
 						<li>
-							<Button variant="link" className="p-0">
+							<Button
+								variant="link"
+								className="p-0"
+								onClick={() => {
+									if (!session?.user) {
+										router.push('/login');
+										return;
+									}
+								}}
+							>
 								<Avatar src={session?.user?.image as string} rootClassName="w-[34px] h-[34px] border border-stone-300" />
 							</Button>
 						</li>
