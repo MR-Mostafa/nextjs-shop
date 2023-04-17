@@ -1,4 +1,4 @@
-import { Card, Star, ImageWithFallback } from '@/components';
+import { Card, ImageWithFallback } from '@/components';
 import Link from 'next/link';
 import { ProductItem as ProductItemType } from '@/types';
 import { shimmer, toBase64 } from '@/utils';
@@ -11,56 +11,52 @@ interface ProductItemProps {
 	link?: string;
 }
 
-export const ProductItem = memo(({ children, product, link }: ProductItemProps) => {
+export const SearchItem = memo(({ children, product, link }: ProductItemProps) => {
 	const router = useRouter();
 
 	return (
 		<Card.Wrapper
+			className="flex flex-nowrap items-center justify-center"
 			onClick={() => {
 				if (!link) return;
 
 				router.push(link);
 			}}
 		>
-			<Card.Image className="max-h-[335px]">
+			<Card.Image className="max-h-[110px] flex-[110px] flex-shrink-0 flex-grow-0">
 				{!link ? (
 					<ImageWithFallback
 						src={product.thumbnail}
 						alt={product.title}
-						width={500}
-						height={335}
+						width={110}
+						height={110}
 						placeholder="blur"
-						blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(500, 335))}`}
+						blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(110, 110))}`}
 					/>
 				) : (
 					<Link href={link}>
 						<ImageWithFallback
 							src={product.thumbnail}
 							alt={product.title}
-							width={500}
-							height={335}
+							width={110}
+							height={110}
 							placeholder="blur"
-							blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(500, 335))}`}
+							blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(110, 110))}`}
 						/>
 					</Link>
 				)}
 			</Card.Image>
 
-			<Card.Body className="px-1 py-2 text-left">
-				<div className="flex items-center justify-between">
-					{!link ? (
-						<p className="title">{product.title}</p>
-					) : (
-						<Link href={link} className="title">
-							{product.title}
-						</Link>
-					)}
-					<p className="price">${product.price}</p>
-				</div>
+			<Card.Body className="flex-auto py-2 pe-1 ps-3 text-left">
+				{!link ? (
+					<p className="title">{product.title}</p>
+				) : (
+					<Link href={link} className="title">
+						{product.title}
+					</Link>
+				)}
 
 				<p className="description pb-3">{product.description}</p>
-
-				<Star rate={product.rating} />
 
 				{children && children}
 			</Card.Body>
@@ -68,4 +64,4 @@ export const ProductItem = memo(({ children, product, link }: ProductItemProps) 
 	);
 });
 
-ProductItem.displayName = 'ProductItem';
+SearchItem.displayName = 'SearchItem';

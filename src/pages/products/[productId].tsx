@@ -44,7 +44,7 @@ const ProductId = ({ data }: ProductIdProps) => {
 				</Button>
 			}
 		>
-			<ProductItem product={data} shouldPreventClick>
+			<ProductItem product={data}>
 				<div className="flex items-center justify-between pt-2">
 					<Counter value={count} setValue={(val) => setCount((prev) => prev + val)} maxValue={data.stock} />
 
@@ -79,9 +79,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		};
 	}
 
-	const products = await getFetcher<ProductItemType>(`/products/${productId}`);
+	try {
+		const products = await getFetcher<ProductItemType>(`/products/${productId}`);
 
-	if (products.status !== 200) {
+		return {
+			props: {
+				data: products.data,
+			},
+		};
+	} catch {
 		return {
 			redirect: {
 				destination: '/products',
@@ -89,12 +95,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			},
 		};
 	}
-
-	return {
-		props: {
-			data: products.data,
-		},
-	};
 }
 
 export default ProductId;

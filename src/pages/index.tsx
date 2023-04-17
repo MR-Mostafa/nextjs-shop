@@ -8,7 +8,7 @@ export default function Home() {
 			shouldShowHeader
 			link="/"
 			title={
-				<Button as="a" variant="link" className="text-2xl font-bold">
+				<Button as="a" variant="link" className="text-lg font-bold">
 					Index
 				</Button>
 			}

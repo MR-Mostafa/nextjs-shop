@@ -59,7 +59,7 @@ const Product = ({ data }: ProductProps) => {
 			shouldShowHeader
 			link="/products"
 			title={
-				<Button as="a" variant="link" className="text-2xl font-bold">
+				<Button as="a" variant="link" className="text-lg font-bold">
 					Products
 				</Button>
 			}
@@ -69,7 +69,8 @@ const Product = ({ data }: ProductProps) => {
 
 				{data.products.length === 0 && <p className="pt-3 text-center font-bold">There are no products available</p>}
 
-				{data.products.length !== 0 && data.products.map((item) => <ProductItem key={item.id} product={item} />)}
+				{data.products.length !== 0 &&
+					data.products.map((item) => <ProductItem key={item.id} product={item} link={`/products/${item.id}`} />)}
 
 				<div className="flex items-center justify-between px-1 pt-4">
 					<Button disabled={hasPreviousPage()} className="mr-2	block w-2/4" variant="primary" onClick={() => handleChangePage(-1)}>
@@ -95,14 +96,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 	const page = query.page && +query.page ? Math.abs(+query.page) : 0;
 	const skip = page === 0 ? 0 : (page - 1) * limit;
 
-	const products = await getFetcher<ProductList>('/products', {
-		params: {
-			limit: limit.toString(),
-			skip: skip.toString(),
-		},
-	});
+	try {
+		const products = await getFetcher<ProductList>('/products', {
+			params: {
+				limit: limit.toString(),
+				skip: skip.toString(),
+			},
+		});
 
-	if (products.status !== 200 || !products.data) {
+		return {
+			props: {
+				data: products.data,
+			},
+		};
+	} catch {
 		return {
 			props: {
 				data: {
@@ -114,12 +121,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			},
 		};
 	}
-
-	return {
-		props: {
-			data: products.data,
-		},
-	};
 }
 
 export default Product;
