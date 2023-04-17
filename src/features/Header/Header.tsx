@@ -42,7 +42,13 @@ export const Header = ({ link, title }: HeaderProps) => {
 						</li>
 
 						<li>
-							<Button variant="link" className="p-2 text-lg">
+							<Button
+								variant="link"
+								className="p-2 text-lg"
+								onClick={() => {
+									router.push('/cart');
+								}}
+							>
 								{cart.length !== 0 && (
 									<span className="absolute -top-px left-0 right-0 mx-auto inline-flex h-[14px] w-[14px] items-center justify-center overflow-hidden rounded-full bg-rose-500 text-[9px] text-white opacity-80">
 										{cart.length}
