@@ -14,7 +14,9 @@ function MainLayout({ children, shouldShowHeader = true, link, title }: TPropsMa
 	return (
 		<>
 			{shouldShowHeader && <Header link={link!} title={title!} />}
-			<main className={cx('w-full', { 'p-6': shouldShowHeader, 'px-6': !shouldShowHeader })}>{children}</main>
+			<main className={cx('w-full', { 'p-6': shouldShowHeader, 'px-6': !shouldShowHeader })}>
+				<div className="container mx-auto">{children}</div>
+			</main>
 		</>
 	);
 }
