@@ -1,4 +1,4 @@
-import { Button, Card, Star } from '@/components';
+import { Card, Star } from '@/components';
 import Link from 'next/link';
 import { ProductItem as ProductItemType } from '@/types';
 import Image from 'next/image';
