@@ -79,9 +79,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		};
 	}
 
-	const products = await getFetcher<ProductItemType>(`/products/${productId}`);
+	try {
+		const products = await getFetcher<ProductItemType>(`/products/${productId}`);
 
-	if (products.status !== 200) {
+		return {
+			props: {
+				data: products.data,
+			},
+		};
+	} catch {
 		return {
 			redirect: {
 				destination: '/products',
@@ -89,12 +95,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			},
 		};
 	}
-
-	return {
-		props: {
-			data: products.data,
-		},
-	};
 }
 
 export default ProductId;

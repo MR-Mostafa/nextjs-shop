@@ -96,14 +96,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 	const page = query.page && +query.page ? Math.abs(+query.page) : 0;
 	const skip = page === 0 ? 0 : (page - 1) * limit;
 
-	const products = await getFetcher<ProductList>('/products', {
-		params: {
-			limit: limit.toString(),
-			skip: skip.toString(),
-		},
-	});
+	try {
+		const products = await getFetcher<ProductList>('/products', {
+			params: {
+				limit: limit.toString(),
+				skip: skip.toString(),
+			},
+		});
 
-	if (products.status !== 200 || !products.data) {
+		return {
+			props: {
+				data: products.data,
+			},
+		};
+	} catch {
 		return {
 			props: {
 				data: {
@@ -115,12 +121,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			},
 		};
 	}
-
-	return {
-		props: {
-			data: products.data,
-		},
-	};
 }
 
 export default Product;
