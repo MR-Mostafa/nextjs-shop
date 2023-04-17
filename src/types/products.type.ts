@@ -18,3 +18,13 @@ export interface ProductList {
 	skip: number;
 	limit: number;
 }
+
+export interface CartItemsType extends ProductItem {
+	count: number;
+}
+
+export interface CartInfoType {
+	items: CartItemsType[];
+	totalCount: number;
+	totalPrice: number;
+}
