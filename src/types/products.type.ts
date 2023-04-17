@@ -23,6 +23,10 @@ export interface CartItemsType extends ProductItem {
 	count: number;
 }
 
+export type CartIndex = {
+	[key: string]: number;
+};
+
 export interface CartInfoType {
 	items: CartItemsType[];
 	totalCount: number;

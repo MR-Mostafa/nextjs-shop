@@ -12,7 +12,7 @@ export const getCartInfo = selector<CartInfoType>({
 		const items = get(cartItemsStore);
 
 		const totalPrice = items.reduce((acc: number, current) => {
-			return acc + current.price;
+			return current.price * current.count + acc;
 		}, 0);
 
 		return {
