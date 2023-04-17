@@ -59,7 +59,7 @@ const Product = ({ data }: ProductProps) => {
 			shouldShowHeader
 			link="/products"
 			title={
-				<Button as="a" variant="link" className="text-2xl font-bold">
+				<Button as="a" variant="link" className="text-lg font-bold">
 					Products
 				</Button>
 			}
