@@ -13,6 +13,10 @@
 .Card-image {
 	@apply overflow-hidden rounded-2xl;
 
+	a {
+		@apply block;
+	}
+
 	img,
 	svg,
 	picture {
