@@ -1,0 +1,11 @@
+@import 'tailwindcss/base';
+@import './base';
+
+@import 'tailwindcss/components';
+@import '../components/Button/Button';
+@import '../components/TextField/TextField';
+@import '../components/Avatar/Avatar';
+@import '../components/Star/Star';
+@import '../components/Card/Card';
+
+@import 'tailwindcss/utilities';

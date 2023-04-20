@@ -1,0 +1,60 @@
+/**
+ * Global TextField Style
+*/
+
+.TextField-wrapper {
+	@apply relative;
+
+	& + .TextField-wrapper {
+		@apply mt-4;
+	}
+} // .TextField-wrapper
+
+.TextField-label {
+	@apply flex items-center justify-start pb-1 text-sm font-medium text-[#131822];
+
+	svg {
+		color: #f6222b;
+	}
+} // .TextField-label
+
+.TextField-input {
+	@apply block w-full rounded-xl border border-zinc-300 bg-white p-3 text-base text-gray-900 outline-none transition;
+
+	&:focus {
+		@apply border-zinc-400 shadow;
+	}
+
+	&::placeholder {
+		@apply text-gray-900 text-opacity-70;
+	}
+
+	&[date-invalid],
+	&:not(:placeholder-shown, :focus):invalid {
+		@apply border-red-700 shadow-red-400 text-red-700 placeholder:text-red-400;
+	}
+} // .TextField-input
+
+.TextField-input--left-icon {
+	@apply pl-10;
+}
+
+.TextField-input--right-icon {
+	@apply pr-10;
+}
+
+.TextField-icon {
+	@apply absolute bottom-1 top-1 z-10 inline-flex items-center justify-items-center bg-white;
+
+	&:first-child {
+		@apply left-1 right-auto;
+	}
+
+	&:last-child {
+		@apply left-auto right-1;
+	}
+
+	svg {
+		@apply h-[19px] w-[19px] text-gray-900 text-opacity-70 transition hover:text-opacity-90 active:text-opacity-70;
+	}
+} // .TextField-icon
